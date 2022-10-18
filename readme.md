@@ -85,9 +85,6 @@ The first step for all three of these strategies is to [publish to NPM](https://
 ```js
 import { CountTo } from 'jack-ui/dist/components' // 导出组件
 customElements.define('count-to', CountTo)
-// 不编译 web component
-app.config.compilerOptions.isCustomElement = tag =>
-  /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(tag)
 ```
 
 package.json 的 module 为
@@ -103,3 +100,14 @@ import { CountTo } from 'jack-ui' // 导出组件
 customElements.define('count-to', CountTo)
 ```
 
+然后 vite.config.js 配置编译选项：
+
+```js
+vue({
+  template: {
+    compilerOptions: {
+      isCustomElement: isCustomElement,
+    },
+  },
+}),
+```
