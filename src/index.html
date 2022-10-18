@@ -1,48 +1,49 @@
 <!--
  * @Date        : 2022-10-18 09:00:38
  * @Author      : ZhouQijun
- * @LastEditors : ZhouQijun
- * @LastEditTime: 2022-10-18 14:55:34
+ * @LastEditors : JackChou
+ * @LastEditTime: 2022-10-18 22:58:42 +0800
  * @Description :
 -->
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <link rel="stylesheet" href="/build/jack-ui.css" />
-    <title>Stencil Component Starter</title>
-    <script type="module" src="/build/jack-ui.esm.js"></script>
-    <!-- <script nomodule src="/build/jack-ui.js"></script> -->
-  </head>
-  <body>
-    <count-to end-value="20000" separator="," duration="10">
-      <span slot="left">工资：</span>
-      <span slot="right">$</span>
-    </count-to>
-    <hr />
-    <button id="pause">暂停/继续</button>
-    <button id="reset">重置</button>
-    <script>
-      const countTo = document.querySelector('count-to')
-      setTimeout(() => {
-        countTo.endValue = 90
-        countTo.duration = 1
-      }, 1000 * 6)
-      countTo.addEventListener('on-end', ({ detail }) => {
-        console.log(detail)
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <link rel="stylesheet" href="/build/jack-web-ui.css" />
+  <title>Stencil Component Starter</title>
+  <script type="module" src="/build/jack-web-ui.esm.js"></script>
+</head>
+
+<body>
+  <count-to end-value="20000" separator="," duration="10">
+    <span slot="left">工资：</span>
+    <span slot="right">$</span>
+  </count-to>
+  <hr />
+  <button id="pause">暂停/继续</button>
+  <button id="reset">重置</button>
+  <hr>
+  <my-rating max-value="10"></my-rating>
+  <script>
+    const countTo = document.querySelector('count-to')
+    setTimeout(() => {
+      countTo.endValue = 90
+      countTo.duration = 1
+    }, 1000 * 6)
+    countTo.addEventListener('on-end', ({ detail }) => {
+      console.log(detail)
+    })
+    document.querySelector('#pause').addEventListener('click', () => {
+      countTo.pauseResume().then(result => {
+        console.log(result)
       })
-      document.querySelector('#pause').addEventListener('click', () => {
-        countTo.pauseResume().then(result => {
-          console.log(result)
-        })
-      })
-      document.querySelector('#reset').addEventListener('click', () => {
-        countTo.reset()
-      })
-    </script>
-  </body>
+    })
+    document.querySelector('#reset').addEventListener('click', () => {
+      countTo.reset()
+    })
+  </script>
+</body>
+
 </html>

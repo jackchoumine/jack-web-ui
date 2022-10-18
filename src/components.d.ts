@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MethodFromParent, Person, RenderH1 } from "./components/my-rating/my-rating";
 export namespace Components {
     interface CountTo {
         "decimal": string;
@@ -18,10 +19,26 @@ export namespace Components {
         "reset": () => Promise<boolean>;
         "separator": string;
     }
+    interface MyRating {
+        "getValue": (params: any) => Promise<number>;
+        "isShow": boolean;
+        "maxValue": number;
+        "methodFromParent": MethodFromParent;
+        "person": object;
+        "personArray": Person[];
+        "renderH1": RenderH1;
+        "setPerson": (params: any) => Promise<boolean>;
+        "setPersonArray": (persons: []) => Promise<boolean>;
+        "value": number;
+    }
 }
 export interface CountToCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLCountToElement;
+}
+export interface MyRatingCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyRatingElement;
 }
 declare global {
     interface HTMLCountToElement extends Components.CountTo, HTMLStencilElement {
@@ -30,8 +47,15 @@ declare global {
         prototype: HTMLCountToElement;
         new (): HTMLCountToElement;
     };
+    interface HTMLMyRatingElement extends Components.MyRating, HTMLStencilElement {
+    }
+    var HTMLMyRatingElement: {
+        prototype: HTMLMyRatingElement;
+        new (): HTMLMyRatingElement;
+    };
     interface HTMLElementTagNameMap {
         "count-to": HTMLCountToElement;
+        "my-rating": HTMLMyRatingElement;
     }
 }
 declare namespace LocalJSX {
@@ -46,8 +70,19 @@ declare namespace LocalJSX {
         "precision"?: number;
         "separator"?: string;
     }
+    interface MyRating {
+        "isShow"?: boolean;
+        "maxValue"?: number;
+        "methodFromParent"?: MethodFromParent;
+        "onRatingChange"?: (event: MyRatingCustomEvent<any>) => void;
+        "person"?: object;
+        "personArray"?: Person[];
+        "renderH1"?: RenderH1;
+        "value"?: number;
+    }
     interface IntrinsicElements {
         "count-to": CountTo;
+        "my-rating": MyRating;
     }
 }
 export { LocalJSX as JSX };
@@ -55,6 +90,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "count-to": LocalJSX.CountTo & JSXBase.HTMLAttributes<HTMLCountToElement>;
+            "my-rating": LocalJSX.MyRating & JSXBase.HTMLAttributes<HTMLMyRatingElement>;
         }
     }
 }
