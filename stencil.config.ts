@@ -10,6 +10,14 @@ import { sass } from '@stencil/sass'
 
 export const config: Config = {
   namespace: 'jack-web-ui',
+  bundles: [
+    {
+      components: ['my-rating'],
+    },
+    {
+      components: ['count-to'],
+    },
+  ],
   outputTargets: [
     {
       type: 'dist',
