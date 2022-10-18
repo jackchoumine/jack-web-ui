@@ -2,14 +2,14 @@
  * @Date        : 2022-10-18 09:00:38
  * @Author      : ZhouQijun
  * @LastEditors : ZhouQijun
- * @LastEditTime: 2022-10-18 15:03:20
+ * @LastEditTime: 2022-10-18 15:50:11
  * @Description :
  */
 import { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 
 export const config: Config = {
-  namespace: 'jack-ui',
+  namespace: 'jack-web-ui',
   outputTargets: [
     {
       type: 'dist',
