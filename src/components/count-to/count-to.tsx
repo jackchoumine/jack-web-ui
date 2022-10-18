@@ -2,12 +2,21 @@
  * @Date        : 2022-10-18 09:18:17
  * @Author      : ZhouQijun
  * @LastEditors : ZhouQijun
- * @LastEditTime: 2022-10-18 10:50:01
+ * @LastEditTime: 2022-10-18 13:04:23
  * @Description : 计时器
  */
-import { Component, Host, h, Prop, Method, Event, Watch } from '@stencil/core'
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Method,
+  Event,
+  Watch,
+  EventEmitter,
+} from '@stencil/core'
+
 import { CountUp } from 'countup.js'
-import { EventEmitter } from 'puppeteer'
 @Component({
   tag: 'count-to',
   styleUrl: 'count-to.css',
@@ -23,10 +32,10 @@ export class CountTo {
   @Prop() precision: number = 2
   @Prop() decimal: string = '.'
 
-  @Event({ eventName: 'on-end' }) onEnd: EventEmitter
+  @Event({ eventName: 'on-end' }) onEnd: EventEmitter<number>
 
   @Watch('endValue')
-  endValueChange(newValue) {
+  endValueChange(newValue: number) {
     this.countUp.update(newValue)
     setTimeout(() => {
       this.onEnd.emit(newValue)

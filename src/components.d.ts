@@ -39,7 +39,7 @@ declare namespace LocalJSX {
         "decimal"?: string;
         "duration"?: number;
         "endValue"?: number;
-        "onOn-end"?: (event: CountToCustomEvent<any>) => void;
+        "onOn-end"?: (event: CountToCustomEvent<number>) => void;
         /**
           * 精度：几位小数
          */
