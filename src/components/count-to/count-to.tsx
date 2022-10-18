@@ -2,7 +2,7 @@
  * @Date        : 2022-10-18 09:18:17
  * @Author      : ZhouQijun
  * @LastEditors : ZhouQijun
- * @LastEditTime: 2022-10-18 13:04:23
+ * @LastEditTime: 2022-10-18 14:58:58
  * @Description : 计时器
  */
 import {
@@ -19,7 +19,7 @@ import {
 import { CountUp } from 'countup.js'
 @Component({
   tag: 'count-to',
-  styleUrl: 'count-to.css',
+  styleUrl: 'count-to.scss',
   shadow: true,
 })
 export class CountTo {

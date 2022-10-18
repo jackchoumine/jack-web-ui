@@ -111,3 +111,25 @@ vue({
   },
 }),
 ```
+
+[How to set compilerOptions.isCustomElement for VueJS 3 in Laravel project](https://stackoverflow.com/questions/71601714/how-to-set-compileroptions-iscustomelement-for-vuejs-3-in-laravel-project)
+
+### 配置全局样式
+
+新建 src/global 目录，把全局样式放在这里。
+
+然后在 stencil.config.ts 中引入：
+
+```js
+ globalStyle: './src/global/global.scss',
+```
+
+> 引入多个全局样式呢？
+
+只有一个全局样式，然后这个全局样式引用其他全局样式。
+
+vue3 中 main.js 引入组件样式
+
+```js
+import 'jack-ui/dist/jack-ui/jack-ui.css'
+```

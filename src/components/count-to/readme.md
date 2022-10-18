@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event    | Description | Type               |
-| -------- | ----------- | ------------------ |
-| `on-end` |             | `CustomEvent<any>` |
+| Event    | Description | Type                  |
+| -------- | ----------- | --------------------- |
+| `on-end` |             | `CustomEvent<number>` |
 
 
 ## Methods

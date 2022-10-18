@@ -1,0 +1,8 @@
+:host {
+  display: block;
+  span {
+    background-color: var(--background-color);
+    // background-color: $background-color;
+    font-size: 40px;
+  }
+}
