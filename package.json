@@ -1,6 +1,6 @@
 {
   "name": "jack-web-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "web components by stenciljs; universal components web ui components",
   "private": false,
   "main": "dist/index.cjs.js",
