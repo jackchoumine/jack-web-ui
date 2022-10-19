@@ -27,8 +27,8 @@ main.js
 
 ```js
 import 'jack-web-ui/dist/jack-web-ui/jack-web-ui.css'
-import { CountTo } from 'jack-web-ui'
-customElements.define('count-to', CountTo as unknown as CustomElementConstructor)
+import { CountTo } from 'jack-web-ui/dist/components'
+customElements.define('count-to', CountTo)
 ```
 
 ### In a stencil-starter app
