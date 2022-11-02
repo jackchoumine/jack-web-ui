@@ -96,3 +96,7 @@ vue3 中 main.js 引入组件样式
 ```js
 import 'jack-web-ui/dist/jack-web-ui/jack-web-ui.css'
 ```
+
+## 问题
+
+1. 构建后的代码没有进行压缩，如何开启压缩？
